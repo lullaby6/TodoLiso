@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoLiso</title>
+
+    <script src="./assets/js/html2canvas.min.js" defer></script>
+    <script src="./assets/js/iconify-icon.min.js" defer></script>
+    <script src="./assets/js/qrcode.min.js" defer></script>
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/main.js" defer></script>
+</head>
+<body>
+    <main>
+        <div class="print">
+            <div id="whatsapp">
+                <header>
+                    <img id="whatsapp-l" src="./assets/images/whatsapp-logo.png" alt="">
+                    <img id="todoliso-l" src="./assets/images/logo.png" alt="">
+                </header>
+                <div id="qr-c">
+                    <div id="qr">
+                        <div id="qrcode"></div>
+                    </div>
+                </div>
+                <footer>
+                    <input type="text" id="whatsapp-number" value="11 3147-2721">
+                </footer>
+            </div>
+            <div class="buttons">
+                <iconify-icon class="downloadButton" icon="material-symbols:download" height="30"></iconify-icon>
+                <iconify-icon class="printButton" icon="material-symbols:print" height="30"></iconify-icon>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
