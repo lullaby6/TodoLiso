@@ -90,7 +90,7 @@ main {
 
 #qr {
     padding: 25px;
-    background-color: white;
+    background-color: #ffffff;
 
     z-index: 100;
 
@@ -115,18 +115,15 @@ main {
 #whatsapp footer input{
     background-color: transparent;
     border: none;
-
     width: 300px;
-
     font-family: 'Bebas Neue', cursive;
     font-family: 'Poppins', sans-serif;
     color: #fff;
     font-size: 50px;
     text-align: center;
-
-    text-shadow:
-    5px 5px 5px rgba(0,0,0,0.125),
-    5px 5px 5px rgba(0,0,0,0.125);
+    text-shadow:    5px 5px 5px rgba(0,0,0,0.125),    5px 5px 5px rgba(0,0,0,0.125);
+    position: relative;
+    z-index: 100;
 }
 
 #whatsapp footer input:focus{
