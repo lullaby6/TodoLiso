@@ -23,7 +23,7 @@ downloadButton.addEventListener('click', async () => {
     const canvas = await html2canvas(target, {
         onclone: doc => {
             const footer = doc.querySelector('#whatsapp footer input')
-            footer.style.translate = '0 50%'
+            // footer.style.translate = '0 50%'
         }
     })
 
