@@ -75,8 +75,6 @@ nav a {
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
-
-    
 }
 
 nav a:hover {
@@ -179,7 +177,7 @@ nav a:hover {
 }
 
 #precio #precios-c #titulo {
-    font-size: 25px;
+    font-size: 20px;
     width: 100%;
     line-height: 25pt;
     text-align: center;
