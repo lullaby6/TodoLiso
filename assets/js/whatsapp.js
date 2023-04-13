@@ -18,22 +18,38 @@ whatsappNumberElement.addEventListener('input', e => {
 
 const downloadButton = document.querySelector('.downloadButton')
 
-downloadButton.addEventListener('click', () => {
+downloadButton.addEventListener('click', async () => {
     const target = document.querySelector('#whatsapp')
 
-    const style = document.createElement('style');
-    document.head.appendChild(style);
-    style.sheet?.insertRule('body > div:last-child img { display: inline-block; }');
+    const canvas = await html2canvas(target)
 
-    html2canvas(target).then(canvas => {
-        style.remove()
+    const download = document.createElement('a')
+    download.download = 'precio'
+    download.href = canvas.toDataURL('png')
+    download.click()
 
-        const download = document.createElement('a')
-        download.download = 'whatsapp'
-        download.href = canvas.toDataURL('png')
-        download.click()
+    // try {
+    //     const stream = await navigator.mediaDevices.getDisplayMedia({preferCurrentTab: true})
+    //     const video = document.createElement('video')
+    //     video.addEventListener('loadedmetadata', () => {
+    //         const canvas = document.createElement('canvas')
+    //         const ctx = canvas.getContext('2d')
 
-        const image = document.createElement('img')
-        image.src = canvas.toDataURL('png')
-    })
+    //         canvas.width = video.videoWidth
+    //         canvas.height = video.videoHeight
+
+    //         video.play()
+
+    //         ctx.drawImage(video, 0, 0, canvas.width, canvas.height)
+
+    //         const download = document.createElement('a')
+    //         download.download = 'whatsapp'
+    //         download.href = canvas.toDataURL('png')
+    //         download.click()
+    //     })
+    //     video.srcObject = stream;
+    //     console.log(stream)
+    // }catch (error){
+    //     console.log(error)
+    // }
 })
