@@ -44,3 +44,14 @@ printButton.addEventListener('click', () => {
         print(image)
     })
 })
+
+const precioElement = document.querySelector('.print')
+
+window.addEventListener('mousewheel', event => {
+    if (event.deltaY < 0){
+        precioElement.style.scale = `${parseFloat(getComputedStyle(precioElement).scale) + 0.1}`
+    }
+    else if (event.deltaY > 0){
+        precioElement.style.scale = `${parseFloat(getComputedStyle(precioElement).scale) - 0.1}`
+    }
+})
