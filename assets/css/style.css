@@ -46,7 +46,7 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1px;
+    gap: 5px;
     padding: 0 15px;
     height: 100vh;
 
@@ -55,13 +55,15 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: var(--dark-text);
-    border: 1.5px solid var(--dark-text);
+    color: #515151;
     text-align: center;
     padding: 7.5px;
     width: 100%;
     font-size: 20px;
     text-transform: uppercase;
+
+    background-color: #eeeeee;
+    font-weight: 600;
 
     /* box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5); */
 }
@@ -69,7 +71,12 @@ nav a {
 nav a:hover {
     text-decoration: none;
     color: var(--text);
-    border: 1.5px solid var(--text);
+    background-color: var(--dark-text);
+}
+
+nav a.selected {
+    text-decoration: none;
+    color: var(--text);
     background-color: var(--dark-text);
 }
 
@@ -228,7 +235,7 @@ nav img {
     gap: 10px;
     aspect-ratio: 210/297;
     height: 500px;
-    padding: 10px;
+    padding: 20px;
     overflow: hidden;
 }
 
@@ -288,7 +295,7 @@ nav img {
     position: absolute;
     top: 0;
     right: 0;
-    width: 37.5px;
+    width: 50px;
     z-index: 100;
 }
 
