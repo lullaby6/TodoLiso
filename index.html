@@ -4,44 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TodoLiso</title>
+    <title>TODO LISO</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo/white.png">
 
-    <script src="./assets/js/libs/es6-promise.min.js" defer></script>
-    <script src="./assets/js/libs/jspdf.umd.min.js" defer></script>
-    <script src="./assets/js/libs/html2canvas.min.js" defer></script>
-    <script src="./assets/js/libs/html2pdf.min.js" defer></script>
-    <script src="./assets/js/libs/iconify-icon.min.js" defer></script>
-    <script src="./assets/js/libs/qrcode.min.js" defer></script>
-    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <script src="./assets/libs/qrcode.min.js" defer></script>
+    <script src="./assets/libs/html-component.js" defer></script>
+    <link rel="stylesheet" href="./assets/libs/normalize.css">
 
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/js/whatsapp.js" defer></script>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Whatsapp</a>
-        <a href="precio.html">Precio</a>
-    </nav>
+    <html-component path="./components/nav.html"></html-component>
     <main>
-        <div class="print">
-            <div id="whatsapp">
-                <header>
-                    <img id="whatsapp-l" src="./assets/images/whatsapp-logo.png" alt="">
-                    <img id="todoliso-l" src="./assets/images/logo/white.png" alt="">
-                </header>
-                <div id="qr-c">
-                    <div id="qr">
-                        <div id="qrcode"></div>
-                    </div>
+        <div id="whatsapp" class="print">
+            <header>
+                <img id="whatsapp-l" src="./assets/images/whatsapp-logo.png" alt="">
+                <img id="todoliso-l" src="./assets/images/logo/white.png" alt="">
+            </header>
+            <div id="qr-c">
+                <div id="qr">
+                    <div id="qrcode"></div>
                 </div>
-                <footer>
-                    <input spellcheck="false" type="text" id="whatsapp-number" value="11 3147-2721">
-                </footer>
             </div>
-            <div class="buttons">
-                <iconify-icon class="downloadButton" icon="material-symbols:download" height="30"></iconify-icon>
-                <iconify-icon class="printButton" icon="material-symbols:print" height="30"></iconify-icon>
-            </div>
+            <footer>
+                <input spellcheck="false" type="text" id="whatsapp-number" value="11 3147-2721">
+            </footer>
         </div>
     </main>
 </body>
