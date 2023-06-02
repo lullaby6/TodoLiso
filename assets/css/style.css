@@ -234,7 +234,7 @@ nav img {
     align-items: center;
     flex-direction: column;
     aspect-ratio: 210/297;
-    height: 500px;
+    height: 100vh;
     overflow: hidden;
 }
 
