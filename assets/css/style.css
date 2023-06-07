@@ -230,7 +230,6 @@ nav img {
 
 #comprobante {
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
     aspect-ratio: 210/297;
@@ -243,6 +242,16 @@ nav img {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+	padding: 2.5px;
+	gap: 2.5px;
+
+}
+
+#comprobante-info .info-alt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	gap: 2.5px;
 }
 
 #comprobante input {
@@ -268,6 +277,7 @@ nav img {
 
 #comprobante input[type="file"]{
     height: 100%;
+	width: 100%;
     color: transparent;
     display: flex;
     justify-content: center;

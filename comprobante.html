@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="./assets/css/style.css">
 <!--     <script src="./assets/js/scale.js" defer></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     <script src="./assets/js/comprobante.js" defer></script>
 </head>
 <body>
@@ -22,11 +23,13 @@
             <img src="./assets/images/logo/black_t.png" alt="" class="logo">
             <div id="comprobante-info">
                 <input spellcheck="false" placeholder="Nombre y apellido" type="text">
-                <input spellcheck="false" placeholder="DNI" type="text">
-                <input spellcheck="false" placeholder="Telefono" type="text">
+				<div class="info-alt">
+					<input spellcheck="false" placeholder="DNI" type="text">
+					<input spellcheck="false" placeholder="Telefono" type="text">
+				</div>
             </div>
             <div id="image-c"></div>
-            <input id="file" type="file">
+            <input id="file" type="file" accept=".pdf, .docx, .doc, image/*">
         </div>
     </main>
 </body>
