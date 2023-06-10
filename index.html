@@ -9,13 +9,15 @@
 
     <script src="./assets/libs/qrcode.min.js" defer></script>
     <script src="./assets/libs/html-component.js" defer></script>
+    <script src="./assets/libs/html2canvas.min.js" defer></script>
     <link rel="stylesheet" href="./assets/libs/normalize.css">
 
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/scale.js" defer></script>
     <script src="./assets/js/whatsapp.js" defer></script>
 </head>
 <body>
-    <html-component path="./components/nav.html"></html-component>
+    <html-component src="./components/nav.html"></html-component>
     <main>
         <div id="whatsapp" class="print">
             <header>
@@ -28,7 +30,7 @@
                 </div>
             </div>
             <footer>
-                <input spellcheck="false" type="text" id="whatsapp-number" value="11 3147-2721">
+                <input placeholder="TELEFONO" spellcheck="false" type="text" id="whatsapp-number" value="11 3147-2721">
             </footer>
         </div>
     </main>

@@ -1,32 +1,40 @@
-const htmlComponentRender = container => {
-    const htmlComponents = container.querySelectorAll('html-component');
+window.HTMLComponentRender = container => {
+    container.querySelectorAll('html-component').forEach(async HTMLComponent => {
+        if(HTMLComponent.hasAttribute('rendered')) return
 
-    htmlComponents.forEach(async htmlComponent => {
-        if(!htmlComponent.hasAttribute('rendered')){
+        const res = await fetch(HTMLComponent.getAttribute('src'));
+        let text = await res.text();
 
-            const res = await fetch(htmlComponent.getAttribute('path'));
-            let text = await res.text();
+        HTMLComponent.setAttribute('children', HTMLComponent.innerHTML);
 
-            const tempDivElement = document.createElement('div');
-            tempDivElement.innerHTML = text;
+        const propsRegex = /\{(\w+)\}/g;
+        HTMLComponent.innerHTML = text.replace(propsRegex, (match, att) =>
+        HTMLComponent.getAttribute(att) || ''
+        )
 
-            const slotsElements = tempDivElement.querySelectorAll('slot')
-            slotsElements.forEach(slotsElement => {
-                slotsElement.innerHTML = htmlComponent.innerHTML
-            })
+        HTMLComponent.querySelectorAll('script').forEach(scriptElement => {
+            const newScriptElement = document.createElement('script');
+            newScriptElement.innerHTML = scriptElement.innerHTML
+            document.getElementsByTagName('head')[0].appendChild(newScriptElement)
+            scriptElement.remove()
+        })
 
-            const propsElements = tempDivElement.querySelectorAll('prop')
-            propsElements.forEach(propElement => {
-                propElement.innerHTML = htmlComponent.getAttribute(propElement.innerText)
-            })
+        HTMLComponent.setAttribute('rendered', '')
 
-            htmlComponent.innerHTML = tempDivElement.innerHTML;
-
-            htmlComponent.setAttribute('rendered', '')
-
-            htmlComponentRender(htmlComponent)
-        }
+        HTMLComponentRender(HTMLComponent)
     })
+
+    container.querySelectorAll('[listener]').forEach(async listenerElement =>
+        listenerElement.getAttribute('listener').split(' ').forEach(listener => {
+            const [eventName, methodName] = listener.split('-')
+            if(eventName == 'load') {
+                listenerMethods[methodName](listenerElement.dispatchEvent(new Event('load')))
+            }else{
+                listenerElement.addEventListener(eventName, event => listenerMethods[methodName](event))
+            }
+        })
+    )
 }
 
-htmlComponentRender(document)
+window.listenerMethods = {}
+window.HTMLComponentRender(document)

@@ -86,6 +86,27 @@ nav img {
     top: 0;
 }
 
+#buttons {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    gap: 5px;
+    margin: 5px;
+}
+
+#buttons button {
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+#buttons button:hover {
+    bottom: 5px;
+}
+
 #whatsapp {
     background-color: var(--whatsapp-pry);
     background: linear-gradient(214deg, var(--whatsapp-pry) 0%, var(--whatsapp-seg) 100%);
@@ -155,6 +176,11 @@ nav img {
 
 #whatsapp footer input:focus{
     outline: none;
+}
+
+#whatsapp footer input::placeholder{
+    color: var(--text);
+    opacity: .375;
 }
 
 .cartel {

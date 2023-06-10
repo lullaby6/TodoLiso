@@ -1,0 +1,101 @@
+<script>
+    window.listenerMethods['download'] = e => {
+        const targetElement = document.querySelector('.print')
+	
+        html2canvas(targetElement, {allowTaint: true}).then(canvas => {
+            const link = document.createElement("a");
+            document.body.appendChild(link);
+            link.download = "todoliso.jpg";
+            link.href = canvas.toDataURL();
+            link.target = '_blank';
+            link.click();
+        });
+    }
+
+    window.listenerMethods['copy'] = e => {
+        const targetElement = document.querySelector('.print')
+
+        html2canvas(targetElement, {allowTaint: true}).then(canvas => 
+            canvas.toBlob(blob => 
+                navigator.clipboard.write([new ClipboardItem({'image/png': blob})])
+            )
+        );
+    }
+
+    window.listenerMethods['clear'] = e => {
+        const inputElements = document.querySelectorAll('input')
+        const textareaElements = document.querySelectorAll('textarea')
+
+        inputElements.forEach(inputElement => {
+            inputElement.value = ''
+        })
+
+        textareaElements.forEach(textareaElement => {
+            textareaElement.value = ''
+            textareaElement.innerText = ''
+            textareaElement.innerText = ''
+        })
+
+        try {
+            const inputComprobanteElement = document.getElementById("file")
+            const comprobanteElement = document.getElementById("image-c")
+
+            comprobanteElement.style.display = "none"
+            inputComprobanteElement.style.display = "flex"
+
+            document.querySelector('.comprobante').remove()
+        } catch (error) {}
+    }
+
+    window.listenerMethods['print'] = e => {
+        const targetElement = document.querySelector('.print')
+
+        const targetElementClone = targetElement.cloneNode(true)
+
+        const div = document.createElement('div')
+        div.style.display = 'flex'
+        div.style.justifyContent = 'center'
+        div.style.alignItems = 'center'
+
+        div.style.position = 'fixed'
+        div.style.top = '0'
+        div.style.left = '0'
+        div.style.zIndex = '200'
+
+        div.style.height = '100vh'
+        div.style.width = '100vw'
+        
+        div.style.backgroundColor = 'red'
+        div.style.backgroundColor = 'white'
+        // div.style.border = '10px solid black'
+
+        targetElementClone.style.rotate = '90deg'
+        // targetElementClone.style.border = '5px solid black'
+
+        div.appendChild(targetElementClone)
+
+        document.body.appendChild(div)
+
+        setTimeout(() => {
+            if(parseFloat(window.getComputedStyle(targetElementClone).width) > parseFloat(window.getComputedStyle(targetElementClone).height)){
+                targetElementClone.style.scale = window.innerWidth / parseFloat(window.getComputedStyle(targetElementClone).width)
+            }else {
+                targetElementClone.style.scale = window.innerHeight / parseFloat(window.getComputedStyle(targetElementClone).height)
+
+            }
+            
+            print()
+            div.remove()
+        }, 500)
+
+        
+    }
+</script>
+
+<div id="buttons">
+    <button id="clear" listener="click-clear">Clear</button>
+    <button id="print" listener="click-print">Print</button>
+    <button id="copy" listener="click-copy">Copy</button>
+    <button id="download" listener="click-download">Download</button>
+</div>
+
